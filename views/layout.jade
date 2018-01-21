@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      .light{
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: #222;
+      }
+      .one{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid #232323;
+        margin: 200px auto;
+      }
+      .one.on{
+        box-shadow: 0 0 100px rgba(255, 255, 0, .5);
+        background-color: rgba(255, 255, 0, .5);
+        border-color: rgba(255, 255, 0, .5);
+      }
+      .one.on.lighter{
+        box-shadow: 0 0 100px rgba(255, 255, 0, 1);
+        background-color: #ff0;
+        border-color: #ff0;
+      }
+  body
+    block content
+    .light
+        .one
+    script(src='/socket.io.js')
+    script.
+      var socket = io.connect('http://localhost:7000');
+      //- socket.on('news', function (data) {
+      //-   console.log(data);
+      //-   socket.emit('my other event', { my: 'data' });
+      //- });
+      var $ele = document.querySelector('.one');
+      socket.on('light', function (data) {
+        console.log('控制命令', data);
+        var name = data.header.name
+        if (name === 'TurnOff') {
+          $ele.classList.remove('on');
+        } else if (name === 'TurnOn') {
+          $ele.classList.add('on');
+        } else if (name === 'AdjustUpBrightness') {
+          $ele.classList.add('lighter');
+        } else if (name === 'AdjustDownBrightness') {
+          $ele.classList.remove('lighter');
+        }
+      });

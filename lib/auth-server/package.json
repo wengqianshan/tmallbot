@@ -1,0 +1,67 @@
+{
+  "_from": "auth-server",
+  "_id": "auth-server@2.3.1",
+  "_inBundle": false,
+  "_integrity": "sha1-J28svfwiI89h8/D3qDT4ZjA3qSQ=",
+  "_location": "/auth-server",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "auth-server",
+    "name": "auth-server",
+    "escapedName": "auth-server",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/auth-server/download/auth-server-2.3.1.tgz",
+  "_shasum": "276f2cbdfc2223cf61f3f0f7a834f8663037a924",
+  "_spec": "auth-server",
+  "_where": "/Users/qianshan/git/tmall",
+  "author": {
+    "name": "Wyatt Preul",
+    "email": "wpreul@gmail.com",
+    "url": "http://jsgeek.com"
+  },
+  "bugs": {
+    "url": "https://github.com/geek/oauth/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "OAuth Server for v2.31 of spec",
+  "devDependencies": {
+    "code": "1.x.x",
+    "lab": "5.x.x"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://github.com/geek/oauth",
+  "keywords": [
+    "oauth",
+    "auth server"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/geek/OAuth/blob/master/LICENCE"
+    }
+  ],
+  "main": "index",
+  "name": "auth-server",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/geek/oauth.git"
+  },
+  "scripts": {
+    "test": "node node_modules/lab/bin/lab"
+  },
+  "version": "2.3.1"
+}
