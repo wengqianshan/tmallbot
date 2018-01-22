@@ -36,7 +36,7 @@ html
         .one
     script(src='/socket.io.js')
     script.
-      var socket = io.connect('http://localhost:7000');
+      var socket = io.connect('//' + location.host);
       //- socket.on('news', function (data) {
       //-   console.log(data);
       //-   socket.emit('my other event', { my: 'data' });
