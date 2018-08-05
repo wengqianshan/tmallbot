@@ -1,4 +1,4 @@
-var oauth = require('./lib/auth-server');
+var oauth = require('auth-server');
 var util = require('util');
 var uuid = require('node-uuid');
 
