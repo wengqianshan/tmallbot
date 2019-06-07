@@ -75,12 +75,20 @@ exports.authorize = function (req, res) {
     res.redirect(url);
   });
 };
-exports.grantToken = function (req, res, next) {
-  console.log(req.body, 'res.body')
-  return authServer.grantAccessToken(req, 'userid', function (token) {
-    console.log(token, 'token')
-    res.json(token);
+var grant = function(req) {
+  return new Promise(function(resolve, reject) {
+    authServer.grantAccessToken(req, 'userid', function (token) {
+      if (token) {
+        resolve(token);
+      } else {
+        reject();
+      }
+    });
   });
+};
+exports.grantToken = async function (req, res) {
+  var token = await grant(req);
+  res.json(token);
 };
 exports.apiEndpoint = function (req, res) {
   authServer.validateAccessToken(req, function (validationResponse) {
