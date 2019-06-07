@@ -59,8 +59,11 @@ var membershipService = {
 };
 // supportedScopes = ['profile', 'status', 'avatar'],
 var supportedScopes = false;
-var expiresIn = 3600;
+var expiresIn = 172800; // 2 天，单位 秒
 var authServer = new oauth(clientService, tokenService, authorizationService, membershipService, expiresIn, supportedScopes);
+authServer.getExpiresDate = function() {
+  return expiresIn * 1000;
+};
 
 var sended = false;
 
